@@ -1,49 +1,23 @@
 <body>
   <div class="wrapper">
-    <div class"btn button">
-      <div class"bg btn circ"></div>
-      <div class"bg circ" id="bg2"></div>
-      <div class"bg circ" id="bg3"></div>
-      <div class"bg circ" id="bg4"></div>
-      <p class="text">Click Me!</p>
-      <p class="hide text">Hi Crush</p>
-      <p class"hide text">You are my favorite Person I love you</p>
-      <p class"hide text">Have a nice day! Keep Safe</p>
-  </div>
-  <div class="container">
-    <div class="hearty heart x1"></div>
-    <div class="hearty heart x2"></div>
-    <div class="hearty heart x3"></div>
-    <div class="hearty heart x4"></div>
-    <div class="hearty heart x5"></div>
-    <div class="hearty altheart x6"></div>
+    <div class="container">
+      <p id="question">Mahal mo ba ako?</p>
+      <button class="btn" id="yes">Yes</button>
+      <button class="btn" id="hindi">Hindi</button>
+    </div>
  </div>
-</div>
+</body>
 <script>
-    const circ = document.querySelectorAll('.btn');
-    const txt = document.querySelectorAll('.text');
-    const bg = document.querySelectorAll('.bg');
-    let i = 0;
-    circ[0].addEventListener('click',()=>{
-        circ[1].classList.toggle("inc");
-        circ[0].classList.add("inc");
-        bg[i].classList.add('inc');
-        i++;
-        if(i=>1){
-            txt[i-1].classList.add('hide');
-            txt[i].classList.remove('hide');
-            if(i==3){
-                circ[0].addEventListener('click',()=>{
-                    txt[0].classList.remove('hide');
-                    setTimeout(function(){
-                        window.location.reload();
-                    },1000);
-                })
-            }
-        }
-        else{
-            txt[0].classList.add('hide');
-            txt[i].classList.remove('hide');
-        }
-    })
+  const noBtn = document.getElementByid('hindi');
+  const yesBtn = document.getElementByid('yes');
+  const ques = document.getElementByid('question');
+  noBtn.addEventlistener("click", ()=>{
+    let rand = Math.floor(Math.random() = (500 - 100) + 1);
+    let rand2 = Math.floor(Math.random() = (-300 - 100) + 1);
+    noBtn.style.transform = "translate("+rand+"px,"+rand2+"px)";
+ });
+ yesBtn.addEvent;ostemer("click", ()=>{
+   ques.innerHTML = "I Love you Too <3"
+ })
 </script>
+</html>
