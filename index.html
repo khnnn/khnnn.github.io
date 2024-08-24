@@ -2,29 +2,178 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="img/flowers.png" type="image/x-icon">
-    <title>Para sayo idol</title>
+    <title>MISS YOU BABY</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000; /* Black background for the body */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            background-color: #2d2d2d; /* Darker shade for container background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Softer shadow effect */
+            color: #fff; /* White text color for readability */
+            display: none; /* Hide all containers by default */
+        }
+
+        .container.active {
+            display: block; /* Show the active container */
+        }
+
+        h2 {
+            color: #ff79c6; /* Pink color for the question text */
+            margin-bottom: 20px;
+        }
+
+        /* Choice Button Styling */
+        .choice {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px 0;
+            background-color: #8a2be2; /* Purple background for choice buttons */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s; /* Smooth hover effect */
+        }
+
+        .choice:hover {
+            background-color: #5a189a; /* Darker purple on hover */
+        }
+
+        .choice:active, .choice.selected {
+            background-color: #4a0f66; /* Even darker purple when clicked or selected */
+        }
+
+        /* Next and Finish Button Styling */
+        .next-btn, .finish-btn {
+            margin-top: 20px;
+            padding: 15px 0;
+            width: 100%;
+            background-color: #ff1493; /* Bright pink background for the next/finish button */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s; /* Smooth hover effect */
+        }
+
+        .next-btn:hover, .finish-btn:hover {
+            background-color: #c71585; /* Darker pink on hover */
+        }
+
+        .next-btn:active, .finish-btn:active {
+            background-color: #8b0a50; /* Even darker pink when clicked */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                width: 95%; /* Adjust container width for smaller screens */
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 18px; /* Adjust font size for smaller screens */
+            }
+
+            .choice, .next-btn, .finish-btn {
+                font-size: 14px; /* Adjust button font size for smaller screens */
+                padding: 12px 0; /* Adjust button padding for smaller screens */
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="greetings">
-    <!-- silahkan menambah kata sesuai keinginan dengan <span>text...</span -->
-        <span>H</span>
-        <span>E</span>
-        <span>L</span>
-        <span>L</span>
-        <span>O</span>
+    <!-- Question 1 -->
+    <div class="container active" id="question1">
+        <h2>Do you still comfortable talking to me?</h2>
+        <button class="choice" onclick="selectChoice(this)">YES</button>
+        <button class="choice" onclick="selectChoice(this)">YEAH</button>
+        <button class="choice" onclick="selectChoice(this)">YEP</button>
+        <button class="choice" onclick="selectChoice(this)">BIG YES</button>
+        <button class="next-btn" onclick="nextQuestion(2)">Next</button>
     </div>
-    <div class="description">
-        <span>I have a special gift for you!</span>
+    
+    <!-- Question 2 -->
+    <div class="container" id="question2">
+        <h2>Is there another chance?</h2>
+        <button class="choice" onclick="selectChoice(this)">YES</button>
+        <button class="choice" onclick="selectChoice(this)">YEAH</button>
+        <button class="choice" onclick="selectChoice(this)">YEP</button>
+        <button class="choice" onclick="selectChoice(this)">BIG YES</button>
+        <button class="next-btn" onclick="nextQuestion(3)">Next</button>
     </div>
-    <div class="button">
-        <button>
-            <a href="flower.html">Click mo Idol</a>
-        </button>
-        
+
+    <!-- Question 3 -->
+    <div class="container" id="question3">
+        <h2>Can we try again?</h2>
+        <button class="choice" onclick="selectChoice(this)">YES</button>
+        <button class="choice" onclick="selectChoice(this)">YEAH</button>
+        <button class="choice" onclick="selectChoice(this)">YEP</button>
+        <button class="choice" onclick="selectChoice(this)">BIG YES</button>
+        <button class="next-btn" onclick="nextQuestion(4)">Next</button>
     </div>
+
+    <!-- Question 4 -->
+    <div class="container" id="question4">
+        <h2>Miss you balik na ikaw please</h2>
+        <button class="choice" onclick="selectChoice(this)">Okay</button>
+        <button class="choice" onclick="selectChoice(this)">Sige</button>
+        <button class="choice" onclick="selectChoice(this)">SURE</button>
+        <button class="choice" onclick="selectChoice(this)">I MISS YOU BEBI</button>
+        <button class="next-btn" onclick="nextQuestion(5)">Next</button>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="container" id="question5">
+        <h2>Pwede na po ba nating ituloy ang ating kwento?</h2>
+        <button class="choice" onclick="selectChoice(this)">YES</button>
+        <button class="choice" onclick="selectChoice(this)">YEAH</button>
+        <button class="choice" onclick="selectChoice(this)">YEP</button>
+        <button class="choice" onclick="selectChoice(this)">BIG YES</button>
+        <button class="finish-btn" onclick="redirect()">Finish</button>
+    </div>
+
+    <script>
+        function selectChoice(button) {
+            // Deselect all buttons in the current question
+            const choices = button.parentElement.querySelectorAll('.choice');
+            choices.forEach(choice => choice.classList.remove('selected'));
+
+            // Select the clicked button
+            button.classList.add('selected');
+        }
+
+        function nextQuestion(nextQuestionId) {
+            // Hide all containers
+            const containers = document.querySelectorAll('.container');
+            containers.forEach(container => container.classList.remove('active'));
+
+            // Show the next container
+            document.getElementById('question' + nextQuestionId).classList.add('active');
+        }
+
+        function redirect() {
+            // Redirect to the specified URL
+            window.location.href = "https://www.example.com"; // Replace with your desired URL
+        }
+    </script>
 </body>
 </html>
