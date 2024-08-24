@@ -1,125 +1,215 @@
-<!doctype html>
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title></title> 
-    <link rel="stylesheet" href="styles.css"> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I miss you my baby</title>
     <style>
+        /* General Styles */
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f8f0ff, #e2a8d0); /* Light pink and purple gradient */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            padding: 20px;
-            background-image: url('Background.jpg'); 
-            background-size: cover; 
-            background-position: center; 
-            font-family: Arial, sans-serif;
-            box-sizing: border-box;
+            overflow: hidden;
         }
 
-        .container {
-            display: grid;
-            grid-template-areas: 
-                "top-left top-right"
-                "button button"
-                "bottom-left bottom-right"
-                ". bottom-text";
-            gap: 20px;
+        .card-container {
+            position: relative;
+            width: 90%;
+            max-width: 400px;
+            height: 400px;
+            perspective: 1200px; /* Perspective for 3D effect */
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 1s ease;
+        }
+
+        .card-reveal {
+            display: none; /* Hide the postcard by default */
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px; /* Rounded corners for a softer look */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow */
             text-align: center;
-            position: relative; 
+            padding: 20px;
+            background: #ffffff; /* White background for both sides */
+            color: #333;
         }
 
-        .box {
-            width: 150px;
-            height: 200px;
-            border: 2px solid white;
-            background-color: black;
+        .card-front {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
 
-        .box img {
+        .card-back {
+            transform: rotateY(180deg);
+            color: #666;
+        }
+
+        .heart-button {
+            background-color: #ff69b4; /* Pink color for the button */
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 28px;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        .heart-button:hover {
+            background-color: #ff1493; /* Darker pink on hover */
+        }
+
+        .heart-button:focus {
+            outline: none;
+        }
+
+        .postcard {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-        }
-
-        .box-top-left {
-            grid-area: top-left;
-        }
-
-        .box-bottom-right {
-            grid-area: bottom-right;
-        }
-
-        .text {
-            color: white;
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            font-size: 14px;
-            line-height: 1.6;
-            text-align: left;
-        }
-
-        .text-top-right {
-            grid-area: top-right;
-        }
-
-        .text-bottom-left {
-            grid-area: bottom-left;
-        }
-
-        .text-bottom {
-            grid-area: bottom-text;
             position: absolute;
-            bottom: 50px; 
+            top: 0;
             left: 0;
-            right: 0;
-            margin: 0 auto;
-            padding: 10px; 
-            font-size: 12px; 
-            line-height: 1.4; 
+            backface-visibility: hidden;
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: rotateY(180deg);
+            background: #ffffff; /* White background */
+            display: flex;
+            padding: 20px;
+            position: relative;
+            overflow: hidden; /* Ensure content stays within boundaries */
+            flex-direction: row; /* Align children in a row */
         }
 
-        .button {
-            grid-area: button;
-            padding: 10px 20px;
-            font-size: 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: white;
-            color: black;
-            margin: auto;
+        .postcard .images-container {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(3, auto);
+            gap: 10px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 30%;
+            height: auto;
         }
-    </style> 
-</head> 
-<body> 
-   <audio id="myAudio" src="uwikanababy.mp3" autoplay loop>
-   </audio>
-    <div class="container"> 
-        <div class="box box-top-left"> 
-            <img src="MyGirl.jpg" alt="Image 1"> 
-        </div> 
-        <div class="text text-top-right">
-            hey ya tinanggal ko mensahe ko baka mabasa mo e
-        </div> 
-        <a href="https://api.whatsapp.com/send?phone=6288210982908&text=Terimakasih%20(isi%20pesan%20mu)" class="button">wala pa to</a>
-        <div class="text text-bottom-left">
-            wait wala pa
-        </div> 
-        <div class="box box-bottom-right"> 
-            <img src="My-Girl.jpg" alt="Image 2"> 
-        </div> 
-        <div class="text text-bottom">
-            sandali 
-        </div> 
-    </div> 
+
+        .postcard .images-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        }
+
+        .postcard-content {
+            flex: 1;
+            margin-right: 40%; /* Ensure space for the images */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            text-align: left;
+            color: #555;
+        }
+
+        .postcard h1 {
+            font-size: 24px;
+            margin: 0;
+            color: #333;
+        }
+
+        .postcard p {
+            font-size: 16px;
+            margin: 10px 0;
+            padding: 0;
+        }
+
+        audio {
+            display: none;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            .card {
+                height: auto;
+                transform: none;
+            }
+
+            .postcard {
+                padding: 10px;
+            }
+
+            .heart-button {
+                font-size: 24px;
+                padding: 8px 12px;
+            }
+
+            .postcard .images-container {
+                grid-template-columns: repeat(3, 1fr); /* Display images in a row on small screens */
+                grid-template-rows: auto;
+                width: 100%;
+                top: 10px;
+                right: 0;
+            }
+
+            .postcard .images-container img {
+                width: 30%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card">
+            <div class="card-front">
+                <h1>Mensahe</h1>
+                <p>Pindutin ang puso </p>
+                <button class="heart-button" onclick="revealPostcard()">❤️</button>
+            </div>
+            <div class="postcard card-reveal">
+                <div class="images-container">
+                    <!-- Replace with paths to your images -->
+                    <img src="withmybaby/received_3682851081930556.jpeg" alt="Image 1">
+                    <img src="withmybaby/received_822861616318573.jpeg" alt="Image 2">
+                </div>
+                <div class="postcard-content">
+                    <h1>I MISS YOU :c</h1>
+                    <p>Hello po, my Mikangkang. I miss you na po palagi. Sana umuwi na ikaw sa ating tahanan at bumalik tayo, pero mas better na. Nandito po ako palagi, nagaantay at susuporta sa iyo. Kung naisip mo pong umuwi at ayusin, nandito lang po ako. Nirerespeto po kita. Alam kong hindi ako naging ang pinangako ko, pero sana samahan mo pa rin ako. Hindi ko kaya na mawala ikaw sa buhay ko. Ako po ang magiging kakampi mo palagi, sana ako pa rin ang piliin mo. MAHAL KITA, AT MAS MAHAHALIN PA LALO.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio src="uwikanababy.mp3" autoplay muted></audio>
+
+    <script>
+        function revealPostcard() {
+            const card = document.querySelector('.card');
+            const postcard = document.querySelector('.card-reveal');
+
+            card.style.transform = 'rotateY(180deg)';
+            postcard.style.display = 'flex';
+        }
+    </script>
 </body>
 </html>
