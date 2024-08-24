@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I miss you my baby</title>
+    <title>I MISS YOU BABY</title>
     <style>
-        /* General Styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* Resetting default margin and padding */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #f8f0ff, #e2a8d0); /* Light pink and purple gradient */
             display: flex;
             justify-content: center;
@@ -19,17 +23,16 @@
         }
 
         .card-container {
-            position: relative;
             width: 90%;
-            max-width: 400px;
-            height: 400px;
+            max-width: 350px;
+            height: auto; /* Allow height to adjust based on content */
             perspective: 1200px; /* Perspective for 3D effect */
         }
 
         .card {
             width: 100%;
-            height: 100%;
-            position: absolute;
+            height: auto; /* Adjust based on content */
+            position: relative; /* Changed to relative for better control */
             transform-style: preserve-3d;
             transform: rotateY(0deg);
             transition: transform 1s ease;
@@ -40,9 +43,8 @@
         }
 
         .card-front, .card-back {
-            position: absolute;
             width: 100%;
-            height: 100%;
+            height: auto;
             backface-visibility: hidden;
             border-radius: 15px; /* Rounded corners for a softer look */
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow */
@@ -50,6 +52,10 @@
             padding: 20px;
             background: #ffffff; /* White background for both sides */
             color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .card-front {
@@ -86,31 +92,25 @@
 
         .postcard {
             width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
+            height: auto; /* Adjust based on content */
+            position: relative;
             backface-visibility: hidden;
             border-radius: 15px; /* Rounded corners */
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             transform: rotateY(180deg);
             background: #ffffff; /* White background */
             display: flex;
+            flex-direction: row; /* Side-by-side layout */
+            align-items: center;
             padding: 20px;
-            position: relative;
-            overflow: hidden; /* Ensure content stays within boundaries */
-            flex-direction: row; /* Align children in a row */
+            box-sizing: border-box; /* Ensure padding is included in width/height */
         }
 
         .postcard .images-container {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            grid-template-rows: repeat(3, auto);
-            gap: 10px;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 50%; /* Takes half of the postcard width */
             height: auto;
         }
 
@@ -122,24 +122,19 @@
         }
 
         .postcard-content {
-            flex: 1;
-            margin-right: 40%; /* Ensure space for the images */
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            text-align: left;
+            width: 50%; /* Takes half of the postcard width */
+            text-align: left; /* Align text to the left */
             color: #555;
         }
 
         .postcard h1 {
-            font-size: 24px;
+            font-size: 20px;
             margin: 0;
             color: #333;
         }
 
         .postcard p {
-            font-size: 16px;
+            font-size: 14px;
             margin: 10px 0;
             padding: 0;
         }
@@ -150,30 +145,32 @@
 
         /* Mobile responsiveness */
         @media (max-width: 600px) {
-            .card {
+            .card-container {
+                max-width: 100%;
                 height: auto;
-                transform: none;
             }
 
             .postcard {
+                flex-direction: column; /* Stack content vertically on small screens */
+                align-items: center;
                 padding: 10px;
             }
 
-            .heart-button {
-                font-size: 24px;
-                padding: 8px 12px;
-            }
-
             .postcard .images-container {
-                grid-template-columns: repeat(3, 1fr); /* Display images in a row on small screens */
-                grid-template-rows: auto;
-                width: 100%;
-                top: 10px;
-                right: 0;
+                width: 80%; /* Ensure images fit well on small screens */
+                flex-direction: row; /* Align images side-by-side on small screens */
+                gap: 10px;
             }
 
             .postcard .images-container img {
-                width: 30%;
+                width: 45%; /* Adjust image width for mobile */
+                height: auto;
+            }
+
+            .postcard-content {
+                width: 90%; /* Adjust text width for mobile */
+                text-align: center;
+                margin-top: 10px;
             }
         }
     </style>
@@ -183,17 +180,16 @@
         <div class="card">
             <div class="card-front">
                 <h1>Mensahe</h1>
-                <p>Pindutin ang puso</p>
+                <p>Pindutin ang heart to reveal a special Message!</p>
                 <button class="heart-button" onclick="revealPostcard()">❤️</button>
             </div>
             <div class="postcard card-reveal">
                 <div class="images-container">
-                    <!-- Replace with paths to your images -->
-                    <img src="received_3682851081930556.jpeg" alt="Image 1">
-                    <img src="received_822861616318573.jpeg" alt="Image 2">
+                    <img src="withmybaby/received_822861616318573.jpeg" alt="Image 1">
+                    <img src="withmybaby/IMG_20231111_233106_152.jpg" alt="Image 2">
                 </div>
                 <div class="postcard-content">
-                    <h1>I MISS YOU :c</h1>
+                    <h1>I miss you po :c</h1>
                     <p>Hello po, my Mikangkang. I miss you na po palagi. Sana umuwi na ikaw sa ating tahanan at bumalik tayo, pero mas better na. Nandito po ako palagi, nagaantay at susuporta sa iyo. Kung naisip mo pong umuwi at ayusin, nandito lang po ako. Nirerespeto po kita. Alam kong hindi ako naging ang pinangako ko, pero sana samahan mo pa rin ako. Hindi ko kaya na mawala ikaw sa buhay ko. Ako po ang magiging kakampi mo palagi, sana ako pa rin ang piliin mo. MAHAL KITA, AT MAS MAHAHALIN PA LALO.</p>
                 </div>
             </div>
