@@ -21,7 +21,7 @@
         .card-container {
             position: relative;
             width: 90%;
-            max-width: 350px;
+            max-width: 400px;
             height: 400px;
             perspective: 1200px; /* Perspective for 3D effect */
         }
@@ -97,43 +97,49 @@
             background: #ffffff; /* White background */
             display: flex;
             padding: 20px;
-            flex-direction: column; /* Stack content vertically */
-            align-items: center;
-            justify-content: center;
+            position: relative;
             overflow: hidden; /* Ensure content stays within boundaries */
+            flex-direction: row; /* Align children in a row */
         }
 
         .postcard .images-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(3, auto);
             gap: 10px;
-            width: 100%;
-            position: relative;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 30%;
+            height: auto;
         }
 
         .postcard .images-container img {
-            width: 32%;
+            width: 100%;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
         }
 
         .postcard-content {
-            width: 100%;
-            text-align: center;
+            flex: 1;
+            margin-right: 40%; /* Ensure space for the images */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            text-align: left;
             color: #555;
-            margin-top: 10px;
         }
 
         .postcard h1 {
-            font-size: 20px;
+            font-size: 24px;
             margin: 0;
             color: #333;
         }
 
         .postcard p {
-            font-size: 14px;
+            font-size: 16px;
             margin: 10px 0;
             padding: 0;
         }
@@ -144,31 +150,30 @@
 
         /* Mobile responsiveness */
         @media (max-width: 600px) {
-            .card-container {
-                max-width: 90%;
+            .card {
                 height: auto;
+                transform: none;
             }
 
             .postcard {
                 padding: 10px;
-                flex-direction: column;
+            }
+
+            .heart-button {
+                font-size: 24px;
+                padding: 8px 12px;
             }
 
             .postcard .images-container {
-                flex-direction: column; /* Stack images vertically on small screens */
-                align-items: center;
-                gap: 5px;
+                grid-template-columns: repeat(3, 1fr); /* Display images in a row on small screens */
+                grid-template-rows: auto;
                 width: 100%;
+                top: 10px;
+                right: 0;
             }
 
             .postcard .images-container img {
-                width: 80%; /* Ensure images are responsive */
-                height: auto;
-            }
-
-            .postcard-content {
-                text-align: center;
-                margin-top: 10px;
+                width: 30%;
             }
         }
     </style>
@@ -178,14 +183,14 @@
         <div class="card">
             <div class="card-front">
                 <h1>Mensahe</h1>
-                <p>Pindutin ang puso!</p>
+                <p>Pindutin ang puso</p>
                 <button class="heart-button" onclick="revealPostcard()">❤️</button>
             </div>
             <div class="postcard card-reveal">
                 <div class="images-container">
                     <!-- Replace with paths to your images -->
-                    <img src="received_3682851081930556.jpeg" alt="Image 1">
-                    <img src="received_822861616318573.jpeg" alt="Image 2">
+                    <img src="withmybaby/received_3682851081930556.jpeg" alt="Image 1">
+                    <img src="withmybaby/received_822861616318573.jpeg" alt="Image 2">
                 </div>
                 <div class="postcard-content">
                     <h1>I MISS YOU :c</h1>
