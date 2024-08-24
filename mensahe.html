@@ -21,7 +21,7 @@
         .card-container {
             position: relative;
             width: 90%;
-            max-width: 400px;
+            max-width: 350px;
             height: 400px;
             perspective: 1200px; /* Perspective for 3D effect */
         }
@@ -97,49 +97,43 @@
             background: #ffffff; /* White background */
             display: flex;
             padding: 20px;
-            position: relative;
+            flex-direction: column; /* Stack content vertically */
+            align-items: center;
+            justify-content: center;
             overflow: hidden; /* Ensure content stays within boundaries */
-            flex-direction: row; /* Align children in a row */
         }
 
         .postcard .images-container {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            grid-template-rows: repeat(3, auto);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
             gap: 10px;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 30%;
-            height: auto;
+            width: 100%;
+            position: relative;
         }
 
         .postcard .images-container img {
-            width: 100%;
+            width: 32%;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
         }
 
         .postcard-content {
-            flex: 1;
-            margin-right: 40%; /* Ensure space for the images */
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            text-align: left;
+            width: 100%;
+            text-align: center;
             color: #555;
+            margin-top: 10px;
         }
 
         .postcard h1 {
-            font-size: 24px;
+            font-size: 20px;
             margin: 0;
             color: #333;
         }
 
         .postcard p {
-            font-size: 16px;
+            font-size: 14px;
             margin: 10px 0;
             padding: 0;
         }
@@ -150,30 +144,31 @@
 
         /* Mobile responsiveness */
         @media (max-width: 600px) {
-            .card {
+            .card-container {
+                max-width: 90%;
                 height: auto;
-                transform: none;
             }
 
             .postcard {
                 padding: 10px;
-            }
-
-            .heart-button {
-                font-size: 24px;
-                padding: 8px 12px;
+                flex-direction: column;
             }
 
             .postcard .images-container {
-                grid-template-columns: repeat(3, 1fr); /* Display images in a row on small screens */
-                grid-template-rows: auto;
+                flex-direction: column; /* Stack images vertically on small screens */
+                align-items: center;
+                gap: 5px;
                 width: 100%;
-                top: 10px;
-                right: 0;
             }
 
             .postcard .images-container img {
-                width: 30%;
+                width: 80%; /* Ensure images are responsive */
+                height: auto;
+            }
+
+            .postcard-content {
+                text-align: center;
+                margin-top: 10px;
             }
         }
     </style>
@@ -183,7 +178,7 @@
         <div class="card">
             <div class="card-front">
                 <h1>Mensahe</h1>
-                <p>Pindutin ang puso </p>
+                <p>Pindutin ang puso!</p>
                 <button class="heart-button" onclick="revealPostcard()">❤️</button>
             </div>
             <div class="postcard card-reveal">
@@ -200,7 +195,7 @@
         </div>
     </div>
 
-    <audio src="uwikanababy.mp3" autoplay></audio>
+    <audio src="uwikanababy.mp3" autoplay muted></audio>
 
     <script>
         function revealPostcard() {
